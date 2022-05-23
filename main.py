@@ -12,7 +12,7 @@ print(prem)
 #Find mean offensive premier league
 
 mean = prem['off'].mean()
-print("Offensive mean of premier league team are:",mean)
+print("Average offensive stats of teams in the Barclays Premier League:",mean)
 
 
 # Find total number in subset
@@ -44,6 +44,6 @@ if conf_int[0] <= p2 <= conf_int[1]:
 else:
    print("Actual proportion,",p2 ,", is not within the 90% confidence interval")
 
-
+#subset my favorite team in Barclays Premier League
 my_fav = soccer[soccer["name"] == "Arsenal"]
 print(my_fav)
