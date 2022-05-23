@@ -2,7 +2,7 @@
 import pandas as pd
 import scipy.stats as st
 
-off_int = int(input())
+off_int = float(input())
 
 # Read csv file spi_global_rankings.csv into data frame
 soccer = pd.read_csv('spi_global_rankings.csv')
@@ -21,7 +21,7 @@ n1 = prem['league'].count()# Code to count number in subset
 # Find number in subset where off > off_int
 x1 = (prem[['off']] > off_int).values.sum()# Code to count number where off > off_int
 # print how many teams has more than 2 points of offense
-print(x1, 'teams have more than 2.0 points of offensive.')
+print(x1, 'teams have more than',off_int, 'points of offensive.')
 # Calculate proportion
 p1 = x1/n1 * 1.0 # Code to calculate proportion 
 print("Sample proportion is", p1)
