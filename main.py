@@ -1,14 +1,19 @@
 # Import necessary modules
 import pandas as pd
 import scipy.stats as st
+import matplotlib.pyplot as plt
 
-off_int = float(input())
+off_int = float(input("Please enter the offensive point: "))
 
 # Read csv file spi_global_rankings.csv into data frame
 soccer = pd.read_csv('spi_global_rankings.csv')
 # Take the subset of the data where league = "Barclays Premier League"
 prem = soccer[soccer["league"] == "Barclays Premier League"] #Code to take subset
+#print all teams in Barclays Premier League
 print(prem)
+#print 5 teams with highest rank
+top5teams = prem.head()
+print(top5teams)
 #Find mean offensive premier league
 
 mean = prem['off'].mean()
@@ -47,3 +52,14 @@ else:
 #subset my favorite team in Barclays Premier League
 my_fav = soccer[soccer["name"] == "Arsenal"]
 print(my_fav)
+
+#Line Chart of TOP 5 Premier League by offensive
+# title 
+plt.title('TOP 5 Premier League by offensive', fontsize=20)
+# labels
+plt.xlabel('Name')
+plt.ylabel('Offensive')
+# plot
+plt.plot(top5teams["name"], top5teams["off"])
+# shows the image
+plt.show()
